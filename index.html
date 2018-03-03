@@ -41,7 +41,7 @@ and open the template in the editor.
                 $('#drop' + dropId).css('left', dropLeft);
                 $('#drop' + dropId).css('bottom', dropTop);
 
-                $('#drop' + dropId).animate({"bottom": "0px"}, 1400, function () {
+                $('#drop' + dropId).animate({"bottom": "0px"}, intervalTime - 100, function () {
                     $(this).remove();
                 });
 
