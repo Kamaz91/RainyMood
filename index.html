@@ -33,12 +33,12 @@ and open the template in the editor.
         // function to generate drops
         function createDrop(dropId, intervalTime) {
             setInterval(function () {
-                var dropLeft = randRange(0, 1600);
+                var dropLeft = randRange(0, 100);
                 var dropTop = randRange(1500, 3100);
 
                 $('.rain').append('<div class="drop" id="drop' + dropId + '"></div>');
 
-                $('#drop' + dropId).css('left', dropLeft);
+                $('#drop' + dropId).css({'left': dropLeft + '%'});
                 $('#drop' + dropId).css('bottom', dropTop);
 
                 $('#drop' + dropId).animate({"bottom": "0px"}, intervalTime - 100, function () {
