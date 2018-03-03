@@ -17,35 +17,45 @@ and open the template in the editor.
     <audio autoplay loop>
         <source src="./common/audio/Dark Piano - Sociopath.ogg" type="audio/ogg">
     </audio> 
-    <audio id="rain" autoplay loop>
+    <audio id="rain" autoplay>
         <source src="./common/audio/rain-07.mp3" type="audio/mpeg">
     </audio> 
     <section class="rain"></section>
     <script>
         // number of drops created.
-        var nbDrop = 400;
+        var nbDrop = 170;
 
-// function to generate a random number range.
+        // function to generate a random number range.
         function randRange(minNum, maxNum) {
             return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
         }
 
-// function to generate drops
-        function createRain() {
-            for (i = 1; i < nbDrop; i++) {
+        // function to generate drops
+        function createDrop(dropId, intervalTime) {
+            setInterval(function () {
                 var dropLeft = randRange(0, 1600);
-                var dropTop = randRange(-1000, 1400);
+                var dropTop = randRange(1500, 3100);
 
-                $('.rain').append('<div class="drop" id="drop' + i + '"></div>');
-                $('#drop' + i).css('left', dropLeft);
-                $('#drop' + i).css('top', dropTop);
-            }
+                $('.rain').append('<div class="drop" id="drop' + dropId + '"></div>');
 
+                $('#drop' + dropId).css('left', dropLeft);
+                $('#drop' + dropId).css('bottom', dropTop);
+
+                $('#drop' + dropId).animate({"bottom": "0px"}, 1400, function () {
+                    $(this).remove();
+                });
+
+            }, intervalTime);
         }
-// Make it rain
-        var vid = document.getElementById("rain");
-        vid.volume = 0.45;
-        createRain();
+
+        // Make it rain
+        for (i = 1; i < nbDrop; i++) {
+            createDrop(i, randRange(700, 2000));
+        }
+
+        var rain = document.getElementById("rain");
+        rain.volume = 0.35;
+
     </script>
 </body>
 </html>
