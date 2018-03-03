@@ -21,7 +21,7 @@ body {
     width:1px;
     height:89px;
     position: absolute;
-
+    filter: blur(1.2px);
 }
 
 /* animate the drops*/
