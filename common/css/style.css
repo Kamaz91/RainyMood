@@ -8,9 +8,9 @@ body {
 
 .rain {
     transform: rotate(51deg);
-    bottom: 0;
-    left: -700px;
-    width: 100%;
+    bottom: -64vh;
+    left: -75vw;
+    width: 200%;
     height: 1px;
     position: absolute;
 }
